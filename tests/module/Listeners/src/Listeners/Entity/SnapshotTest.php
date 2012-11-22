@@ -35,7 +35,17 @@ class SnapshotTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(103, $snap->getListeners());
         $this->assertEquals($timestamp, $snap->getTimestamp());
 
-        $format = sprintf('%s - 103', $timestamp->format('Y-m-d H:i:s O'));
+        $format = '2012-11-21 11:05:42 +0000 - 103';
         $this->assertEquals($format, (string) $snap);
+    }
+
+    public function testListeners() {
+        $snap = new Snapshot;
+
+        $snap->setListeners(0);
+        $this->assertEquals(0, $snap->getListeners());
+
+        $snap->setListeners(-1);
+        $this->assertEquals(0, $snap->getListeners());
     }
 }

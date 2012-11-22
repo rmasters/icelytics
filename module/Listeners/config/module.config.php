@@ -8,6 +8,8 @@
  * @license   http://github.com/rmasters/icelytics/blog/masters/LICENSE
  */
 
+namespace Listeners;
+
 return array(
     'doctrine' => array(
         'driver' => array(
