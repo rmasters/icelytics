@@ -9,6 +9,16 @@
  */
 
 return array(
+    'doctrine' => array(
+        'driver' => array(
+            'orm_default' => array(
+                'paths' => array(
+                    __DIR__ . '/../src/' . __NAMESPACE__ . '/Entity',
+                ),
+            ),
+        ),
+    ),
+
     'router' => array(
         'routes' => array(),
     ),

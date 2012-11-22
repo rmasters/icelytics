@@ -14,4 +14,13 @@
  * Used for module configuration and project-specific config
  */
 return array(
+    // Doctrine ORM config
+    'doctrine' => array(
+        'driver' => array(
+            'orm_default' => array(
+                'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
+                'cache' => 'array',
+            ),
+        ),
+    ),
 );
