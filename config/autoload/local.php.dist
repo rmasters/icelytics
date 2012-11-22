@@ -1,0 +1,31 @@
+<?php
+/**
+ * Icelytics
+ *
+ * @author    Ross Masters <ross@rossmasters.com>
+ * @link      http://github.com/rmasters/icelytics
+ * @copyright Copyright (c) 2012 Ross Masters
+ * @license   http://github.com/rmasters/icelytics/blog/masters/LICENSE
+ */
+
+/**
+ * Local/per-install configuration
+ *
+ * Contains configuration such as database credentials and log locations.
+ */
+return array(
+    'doctrine' => array(
+        'connection' => array(
+            'orm_default' => array(
+                'driverClass' => 'Doctrine\DBAL\Driver\PDOMySql\Driver',
+                'params' => array(
+                    'host' => 'localhost',
+                    'port' => 3306,
+                    'user' => 'username',
+                    'password' => 'password',
+                    'dbname' => 'icelytics',
+                ),
+            ),
+        ),
+    ),
+);

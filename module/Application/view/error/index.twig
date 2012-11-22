@@ -1,0 +1,33 @@
+<div class="page-header"><h1>An error occurred!</h1></div>
+
+<div class="row-fluid">
+    <div class="span12">
+
+{% if display_exceptions %}
+{% if exception %}
+<h2>Additional information:</h2>
+<dl>
+    <dt>File:</dt>
+    <dd>
+    <pre class="prettyrpint linenums">{{ exception.getFile() }}: {{ exception.getLine() }}</pre>
+    </dd>
+
+    <dt>Message:</dt>
+    <dd>
+    <pre class="prettyprint linenums">{{ exception.getMessage() }}</pre>
+    </dd>
+
+    <dt>Stack trace:</dt>
+    <dl>
+    <pre class="prettyprint linenums">{{ exception.getTraceAsString() }}</pre>
+    </dl>
+</dl>
+{% else %}
+<p>No exception reported.</p>
+{% endif %}
+{% else %}
+<p>Something went wrong while trying to load that page. Either try again or head back to the <a href="{{ url('home') }}">homepage</a>.</p>
+{% endif %}
+
+</div>
+</div>

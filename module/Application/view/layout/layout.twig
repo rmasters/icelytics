@@ -1,0 +1,56 @@
+{{ doctype() }}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    {% block title %}{{ headTitle('Icelytics') }}{% endblock %}
+
+    {% block meta %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{ headMeta() }}
+    {% endblock %}
+
+    {% block styles %}
+    {{ headLink() }}
+    {{ headStyle() }}
+    {% endblock %}
+
+    {% block headscript %}
+    {{ headScript() }}
+    {% endblock %}
+</head>
+
+<body>
+    
+<div class="navbar navbar-static-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+
+            <a class="brand" href="/">Icelytics</a>
+
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li><a href="/">Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+
+{{ content|raw }}
+
+</div>
+
+{% block inlinescript %}
+{{ inlineScript() }}
+{% endblock %}
+
+</body>
+</html>

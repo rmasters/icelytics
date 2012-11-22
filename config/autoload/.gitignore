@@ -1,0 +1,6 @@
+# Keep local configs out of source control
+local.php
+*.local.php
+
+# But ensure files marked for distribution (examples) are included
+!*.dist
