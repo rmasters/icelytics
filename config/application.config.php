@@ -1,15 +1,15 @@
 <?php
 return array(
     'modules' => array(
+        // Application modules
+        'Application',
+        'Listeners',
+
         // Libraries
         'DoctrineModule',
         'DoctrineORMModule',
         'ZfcTwig',
         'AsseticBundle',
-
-        // Application modules
-        'Application',
-        'Listeners',
     ),
     'module_listener_options' => array(
         'config_glob_paths'    => array(
