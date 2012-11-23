@@ -22,6 +22,12 @@ class Snapshot
 {
     /**
      * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
      * @ORM\Column(type="datetime")
      */
     protected $timestamp;
@@ -40,6 +46,23 @@ class Snapshot
     public function __construct($listeners=0, $timestamp=null) {
         $this->setListeners($listeners);
         $this->setTimestamp($timestamp);
+    }
+
+    /**
+     * Get the snapshot ID
+     * @return int
+     */
+    public function getId() {
+        return $this->id;
+    }
+
+    /**
+     * Disallow setting the ID
+     * @param int $id
+     * @throws \Exception
+     */
+    public function setId($id) {
+        throw new \Exception('Snapshot IDs are automatically generated on persisting.');
     }
 
     /**

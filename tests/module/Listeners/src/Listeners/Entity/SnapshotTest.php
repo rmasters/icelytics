@@ -48,4 +48,14 @@ class SnapshotTest extends \PHPUnit_Framework_TestCase
         $snap->setListeners(-1);
         $this->assertEquals(0, $snap->getListeners());
     }
+
+    public function testId() {
+        $snap = new Snapshot;
+
+        // @todo Mock EntityManager and persist
+
+        // Test setting the ID
+        $this->setExpectedException('Exception');
+        $snap->setId(123);
+    }
 }
