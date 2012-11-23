@@ -17,6 +17,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Entity
  * @ORM\Table(name="mount_listeners")
+ * @package Models
  */
 class MountSnapshot extends Snapshot
 {

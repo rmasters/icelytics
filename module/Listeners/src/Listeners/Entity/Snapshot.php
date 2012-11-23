@@ -15,8 +15,9 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * A snapshot of the total stream listeners at a time
  *
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Listeners\Entity\Repository\Snapshot")
  * @ORM\Table(name="listeners")
+ * @package Models
  */
 class Snapshot
 {
@@ -119,6 +120,17 @@ class Snapshot
         return sprintf('%s - %d',
             $this->getTimestamp()->format('Y-m-d H:i:s O'),
             $this->getListeners()
+        );
+    }
+
+    /**
+     * Get a copy of the entity as an array
+     * @return array
+     */
+    public function getArrayCopy() {
+        return array(
+            'timestamp' => $this->getTimestamp(),
+            'listeners' => $this->getListeners()
         );
     }
 }

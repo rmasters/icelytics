@@ -25,11 +25,22 @@ return array(
                     ),
                 ),
             ),
+            'dashboard' => array(
+                'type' => 'literal',
+                'options' => array(
+                    'route' => '/dashboard',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Dashboard',
+                        'action' => 'index',
+                    ),
+                ),
+            ),
         ),
     ),
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\Index' => 'Application\Controller\IndexController'
+            'Application\Controller\Index' => 'Application\Controller\IndexController',
+            'Application\Controller\Dashboard' => 'Application\Controller\DashboardController',
         ),
     ),
     'view_manager' => array(
@@ -48,6 +59,14 @@ return array(
                 '@base_css',
                 '@base_js',
 //                '@base_img',
+            ),
+        ),
+        'routes' => array(
+            'dashboard' => array(
+                '@base_css',
+                '@base_js',
+                '@highcharts_js',
+                '@dashboard',
             ),
         ),
         'modules' => array(
@@ -81,6 +100,12 @@ return array(
                         ),
                         'options' => array(
                             'move_raw' => true,
+                        ),
+                    ),
+                    // Scripts used on dashboard
+                    'dashboard' => array(
+                        'assets' => array(
+                            'live.js',
                         ),
                     ),
                 ),

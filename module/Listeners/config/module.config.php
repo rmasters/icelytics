@@ -22,14 +22,70 @@ return array(
     ),
 
     'router' => array(
-        'routes' => array(),
+        'routes' => array(
+            'listeners' => array(
+                'type' => 'literal',
+                'options' => array(
+                    'route' => '/listeners',
+                    'defaults' => array(
+                        'controller' => 'Listeners\Controller\Listener',
+                    ),
+                ),
+                'child_routes' => array(
+                    // Data endpoints
+                    'data' => array(
+                        'type' => 'literal',
+                        'options' => array(
+                            'route' => '/data',
+                            'defaults' => array(
+                                'controller' => 'Listeners\Controller\Data',
+                            ),
+                        ),
+                        'child_routes' => array(
+                            // Listener counts over the past twenty four hours
+                            '24h' => array(
+                                'type' => 'literal',
+                                'options' => array(
+                                    'route' => '/today.json',
+                                    'defaults' => array(
+                                        'action' => 'today',
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+        ),
     ),
 
     'controllers' => array(
-        'invokables' => array(),
+        'invokables' => array(
+            'Listeners\Controller\Data' => 'Listeners\Controller\DataController',
+        ),
     ),
 
     'view_manager' => array(
         'template_path_stack' => array(__DIR__ . '/../view'),
+        'strategies' => array(
+            'ViewJsonStrategy',
+        ),
+    ),
+
+    'assetic_configuration' => array(
+        'modules' => array(
+            'listeners' => array(
+                'root_path' => __DIR__ . '/../assets',
+                'collections' => array(
+                    // HighCharts
+                    'highcharts_js' => array(
+                        'assets' => array(
+                            'highcharts/highcharts.js',
+                            'highcharts/exporting.js',
+                        ),
+                    ),
+                ),
+            ),
+        ),
     ),
 );
