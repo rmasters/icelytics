@@ -73,10 +73,11 @@ return array(
             'application' => array(
                 'root_path' => __DIR__ . '/../assets',
                 'collections' => array(
-                    // CSS (bootstrap)
+                    // CSS (bootstrap, inspiritas)
                     'base_css' => array(
                         'assets' => array(
                             'bootstrap/css/bootstrap.min.css',
+                            'inspiritas/inspiritas.css',
                             'bootstrap/css/bootstrap-responsive.min.css',
                         ),
                         'filters' => array(
@@ -86,17 +87,28 @@ return array(
                         ),
                         'options' => array(),
                     ),
-                    // JS (jQuery + bootstrap)
+                    // JS (jQuery + bootstrap + html5shim)
                     'base_js' => array(
                         'assets' => array(
                             '//code.jquery.com/jquery.min.js',
                             'bootstrap/js/bootstrap.min.js',
+                            'bootstrap/js/html5shiv.js',
                         ),
                     ),
-                    // Images (bootstrap)
+                    // Fonts (inspiritas)
+                    'base_fonts' => array(
+                        'assets' => array(
+                            'inspiritas/fonts/*',
+                        ),
+                        'options' => array(
+                            'move_raw' => true,
+                        ),
+                    ),
+                    // Images (bootstrap, inspiritas)
                     'base_img' => array(
                         'assets' => array(
                             'bootstrap/img/*.png',
+                            'inspiritas/images/*',
                         ),
                         'options' => array(
                             'move_raw' => true,
@@ -105,7 +117,7 @@ return array(
                     // Scripts used on dashboard
                     'dashboard' => array(
                         'assets' => array(
-                            'live.js',
+                            'icelytics/js/live.js',
                         ),
                     ),
                 ),

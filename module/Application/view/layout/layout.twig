@@ -1,3 +1,4 @@
+{# Based on the Inspiritas index.html template https://github.com/littke/inspiritas-bootstrap #}
 {{ doctype() }}
 <html lang="en">
 <head>
@@ -7,6 +8,7 @@
 
     {% block meta %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Icelytics">
     {{ headMeta() }}
     {% endblock %}
 
@@ -22,7 +24,7 @@
 
 <body>
     
-<div class="navbar navbar-static-top">
+<div class="navbar navbar-static-top navbar-inverse">
     <div class="navbar-inner">
         <div class="container-fluid">
             <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -32,20 +34,27 @@
             </a>
 
             <a class="brand" href="/">Icelytics</a>
-
-            <div class="nav-collapse collapse">
-                <ul class="nav">
-                    <li><a href="/">Home</a></li>
-                </ul>
-            </div>
         </div>
     </div>
 </div>
 
-<div class="container-fluid">
-
+<div class="container">
+    <div class="row-fluid">
+        <div class="span3">
+            <aside>
+                <nav>
+                    <ul class="nav">
+                        <li><a href="/">Dashboard</a></li>
+                    </ul>
+                </nav>
+            </aside>
+        </div>
+        <div class="span9" id="content-wrapper">
+            <div id="content">
 {{ content|raw }}
-
+            </div>
+        </div>
+    </div>
 </div>
 
 {% block inlinescript %}
